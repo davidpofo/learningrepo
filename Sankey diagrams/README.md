@@ -1,1 +1,1 @@
-A personal job search Sankey Diagram and some interactive sankey diagram examples from https://github.com/ricklupton/ipysankeywidget
+A personal job search Sankey Diagram and some interactive Sankey Diagram examples from https://github.com/ricklupton/ipysankeywidget
