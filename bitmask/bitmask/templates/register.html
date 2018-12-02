@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block body %}
+<section class="hero is-white">
+    <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img src="/static/logo.jpg" />
+                <p href="/" class="subtitle font-work-sans">BitMask</p>
+            </a>
+            <div id="navbar-burger-id" class="navbar-burger burger" data-target="navbar-menu-id">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="navbar-menu-id" class="navbar-menu">
+            <div class="navbar-start">
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field is-grouped">
+                        <p class="control">
+                            <a href="/support" class="button is-primary is-outlined">
+                                <span>Support</span>
+                            </a>
+                            <a href="/login" class="button is-link is-outlined">
+                                <span>Sign In</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</section>
+<title>BitMask</title>
+<section class="hero is-link is-bold is-medium">
+    <div class="hero-body" style="padding-top:0% !important;">
+        <div class="container has-text-centered" style="margin-top:8% !important;">
+            <div class="columns">
+                <div class="column is-auto">
+                    <br>
+                    <div class="columns">
+                        <div class="column is-10 is-offset-2 has-text-left">
+                            <p class="title font-work-sans is-2">BitMask</p>
+                            <ul style="font-size:20px;line-height:35px;">
+                                <li>An anonymous way to receive donations.</li>
+                                <li><b>Step 1:</b> Register, login and add a xpub key</li>
+                                <li><b>Step 2:</b> Enter your xpub key</li>
+                                <li><b>Step 3:</b> Send the link out</li>
+                                <li style="font-size:12px;"><i class="fa fa-info-circle"></i>&nbsp;<b>Beginner
+                                    Info: </b><a href="/support">click here for knowledge.</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-auto">
+                    <div class="signup-box">
+                        <div class="signup-area">
+                            <h1 class="title has-text-left">Register</h1>
+                            <form action="" method="post">
+                                <div class="field">
+                                    <p class="control has-icons-left has-icons-right">
+                                        <input required class="input" name="username" type="text" placeholder="Username">
+                                        <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
+                                    </p>
+                                </div>
+                                <div class="field">
+                                    <p class="control has-icons-left has-icons-right">
+                                        <input required class="input" name="password" type="password" placeholder="Password">
+                                        <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
+                                    </p>
+                                </div>
+                                <div class="field">
+                                    <p class="control has-icons-left has-icons-right">
+                                        <input required class="input" name="cpassword" type="password" placeholder="Confirm Password">
+                                        <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
+                                    </p>
+                                </div>
+                                 {% if error %}
+                                    <p style="margin-top:8px;margin-bottom:8px;" class="has-text-white">{{ error }}</p>
+                                 {% endif %}
+                                <button class="form-button button is-success is-fullwidth has-text-left">Sign Up
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero">
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    <strong>BitMask</strong> by UMD
+                    <span class="icon is-small"><i class="fa fa-copyright"></i></span>2018</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</section>
+{% endblock %}

@@ -1,0 +1,85 @@
+.login-input {
+  width: 130px;
+}
+
+.form-button {
+  width: 80px;
+  height: 35px;
+}
+
+.signup-box {
+  margin: auto;
+  width: 325px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 10px;
+}
+
+.settings-box {
+  margin: auto;
+  width: 325px;
+}
+
+.signup-area {
+  padding: 30px;
+}
+
+.settings-area {
+  padding: 30px;
+}
+
+html{
+    background: #3273dc;
+}
+
+.font-work-sans{
+    font-family: 'Work Sans', sans-serif !important;
+}
+
+hr{
+    background-color: rgba(255, 255, 255, 0.5);
+    height:1px;
+    padding:0px !important;
+    margin:0px !important;
+}
+
+.is-marginless{
+    margin:0px !important;
+}
+
+.is-sm-padding{
+    padding-top:0px;
+    padding-bottom:0px;
+}
+
+.push-top{
+    margin-top:5%;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: black;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: black;
+}
+
+.measure{
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+
+.donate-input{
+    background: 0 0;
+    border: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block body %}
+{% include "navbar.html" %}
+<div class="columns push-top">
+    <div class="column is-8 is-offset-2">
+        <div class="columns is-multiline" style="margin-bottom:5%;">
+            <div class="column is-full is-sm-padding">
+                <span class="is-work-sans subtitle has-text-white"><i class="fa fa-cogs"></i>&nbsp;Your key list.</span>
+                <a href="/add" class="is-pulled-right button is-small is-rounded is-success">Add Key</a>
+            </div>
+            <div class="column is-full">
+                <hr>
+            </div>
+            {% if not wallets %}
+                <div class="column is-full">
+                    <article class="message is-success">
+                      <div class="message-header">
+                        <p>Welcome to BitMask</p>
+                      </div>
+                      <div class="message-body">
+                        Please click the <strong>add key</strong> above to create a bitcoin donation form.
+                      </div>
+                    </article>
+                </div>
+            {% endif %}
+            {% for wallet in wallets %}
+            <div class="column is-full">
+                <article class="message">
+                    <div class="message-header">
+                        <p>{{ wallet.title }}</p>
+                        <form method="post" action="">
+                            <button class="delete" name="id" value="{{ wallet.id }}" aria-label="delete"></button>
+                        </form>
+                    </div>
+                    <div class="message-body">
+                        <form action="" method="post">
+                            <label class="has-text-weight-semibold">Master Public Key</label>
+                            <div class="field">
+                                <p class="control is-expanded">
+                                    <input class="input" type="text"
+                                           value="{{ wallet.mpk }}">
+                                </p>
+                            </div>
+                            <label class="has-text-weight-semibold">Donation Link</label>
+                            <div class="field">
+                                <p class="control is-expanded">
+                                    <input class="input" type="text" readonly
+                                           value="http://127.0.0.1:5000/d/{{ wallet.url }}/">
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block body %}
+<section class="hero is-white">
+    <nav class="navbar is-transparent">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img src="/static/logo.jpg"/>
+                <p href="/" class="subtitle font-work-sans">BitMask</p>
+            </a>
+            <div id="navbar-burger-id" class="navbar-burger burger" data-target="navbar-menu-id">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div id="navbar-menu-id" class="navbar-menu">
+            <div class="navbar-start">
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field is-grouped">
+                        <p class="control">
+                            <a href="/support" class="button is-primary is-outlined">
+                                <span>Support</span>
+                            </a>
+                            <a href="/register" class="button is-link is-outlined">
+                                <span>Sign Up</span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</section>
+<div class="columns push-top">
+    <div class="column is-8 is-offset-2">
+        <div class="columns is-multiline" style="margin-bottom:5%;">
+            <div class="column is-full is-sm-padding">
+                <span class="is-work-sans subtitle has-text-white"><i class="fa fa-dollar"></i>&nbsp;{{ wallet.title }}</span>
+            </div>
+            <div class="column is-full">
+                <hr>
+            </div>
+            {% if not address %}
+            <div class="column is-8 is-offset-2">
+                {% if error %}
+                    <div class="message">
+                        <div class="message-body">
+                            There was an error.
+                        </div>
+                    </div>
+                {% endif %}
+                {% else %}
+                <div class="column is-10 is-offset-1">
+                    {% endif %}
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Donate to {{ wallet.title }}
+                            </p>
+                            <p href="#" class="card-header-icon">
+                      <span class="icon">
+                        <i class="fa fa-bitcoin" aria-hidden="true"></i>
+                      </span>
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                {% if not address %}
+                                <form id="dollar" action="" type="get" class="has-text-centered"
+                                      onsubmit="return validateForm()">
+                                    <span style="font-size:30px;vertical-align: top;color:black;">$</span><input
+                                        dir="ltr" id="input" autocomplete="off" name="amount"
+                                        class="donate-input is-fullwidth" onblur="this.placeholder = '0.00'"
+                                        onfocus="this.placeholder = ''" style="width: 113px; font-size: 60px;"
+                                        placeholder="0.00" type="tel">
+                                    <span class='measure'></span>
+                                    <script>
+                                document.querySelector('input').addEventListener('input', onInput)
+
+                                function onInput(){
+                                    var spanElm = this.nextElementSibling;
+                                    spanElm.textContent = this.value; // the hidden span takes the value of the input;
+                                    this.style.width = spanElm.offsetWidth*4 + 'px'; // apply width of the span to the input
+                                };
+
+                                function validateForm() {
+                                    var x = document.forms["dollar"]["amount"].value;
+                                    if (x == "") {
+                                        alert("Enter an amount");
+                                        return false;
+                                    }
+                                }
+
+                                    </script>
+                                    <br/>
+                                    <br/>
+                                    <button class="button is-success is-fullwidth">Send</button>
+                                </form>
+                                {% else %}
+                                <div class="columns is-multiline">
+                                    <div class="column is-4" style="padding-bottom:0px;margin-bottom:0px;">
+                                        <img src="https://chart.googleapis.com/chart?cht=qr&chl={{ link }}&chs=200x200"/>
+                                    </div>
+                                    <div class="column is-8">
+                                        <br/>
+                                        <br/>
+                                        <br/>
+                                        <p>Paying {{ address }} <br/><i class="fa fa-bitcoin"></i>&nbsp;{{ btc }}</p>
+                                    </div>
+                                    <script>
+                                        function copy() {
+                                          /* Get the text field */
+                                          var copyText = document.getElementById("link");
+
+                                          /* Select the text field */
+                                          copyText.select();
+
+                                          /* Copy the text inside the text field */
+                                          document.execCommand("copy");
+
+                                        };
+                                    </script>
+                                    <div class="column is-full" style="padding-top:0px;margin-top:0px;">
+                                        <div class="field has-addons has-addons-right is-fullwidth">
+                                            <div class="control is-expanded">
+                                                <input type="text" id="link" class="input" readonly value="{{ link }}"/>
+                                            </div>
+                                            <p class="control">
+                                                <a class="button is-success" onclick="copy()">
+                                                    <i class="fa fa-copy"></i>&nbsp;Copy
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
