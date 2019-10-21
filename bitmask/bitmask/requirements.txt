@@ -12,7 +12,7 @@ colorama==0.3.7
 cryptography==1.7.1
 dnspython==1.15.0
 docker-py==1.8.0
-ecdsa==0.13
+ecdsa==0.13.3
 Electrum==3.2.3
 flake8==3.6.0
 Flask==1.0.2
