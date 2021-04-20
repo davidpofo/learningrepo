@@ -41,7 +41,7 @@ pluggy==0.8.0
 protobuf==3.0.0a3
 psycopg2-binary==2.7.6.1
 ptyprocess==0.6.0
-py==1.7.0
+py==1.10.0
 pyaes==1.6.1
 pyasn1==0.1.9
 pycodestyle==2.4.0
